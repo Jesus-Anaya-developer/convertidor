@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DivisasService } from "../../services/divisas.service";
 
 @Component({
   selector: 'app-convertidor',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./convertidor.component.scss']
 })
 export class ConvertidorComponent {
+
+  monedas: [] = [];
+
+  getAllList() {
+
+  }
 
 }
