@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DivisasService } from "../../services/divisas.service";
 
 @Component({
   selector: 'app-convertidor',
@@ -8,10 +7,6 @@ import { DivisasService } from "../../services/divisas.service";
 })
 export class ConvertidorComponent {
 
-  monedas: [] = [];
 
-  getAllList() {
-
-  }
 
 }
