@@ -13,13 +13,13 @@
       <label for="Tengo">Tengo</label>
       <select class="form-select form-select-lg" aria-label="Tengo" id="Tengo" [(ngModel)]="tengo"
         (change)="convertir()">
-        <option *ngFor="let item of moneda, let index of moneda"> {{item}} </option>
+        <option *ngFor="let item of arrayMoneda"> {{item}} </option>
       </select>
     </div>
     <div class="col-lg-6">
       <label for="Quiero">Quiero</label>
       <select class="form-select form-select-lg" aria-label="Quiero" [(ngModel)]="quiero" (change)="convertir()">
-        <option *ngFor="let item of moneda, let index of moneda"> {{item}} </option>
+        <option *ngFor="let item of arrayMoneda"> {{item}} </option>
       </select>
     </div>
   </div>
