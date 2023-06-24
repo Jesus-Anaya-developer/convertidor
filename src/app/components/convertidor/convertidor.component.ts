@@ -11,7 +11,8 @@ export class ConvertidorComponent {
   cantidad: number = 0;
   tengo: string = 'USD';
   quiero: string = 'MXN';
-  total: number = 0
+  //Se tiene que declarar el array como tipo any para poder usarlo en el template
+  total: any = [];
   moneda = {
     "AED": " United Arab Emirates Dirham",
     "AFN": " Afghan Afghani",
@@ -197,25 +198,22 @@ export class ConvertidorComponent {
     const coin = this.tengo.substring(0, 3);
     const coinChange = this.quiero.substring(0, 3);
 
-    console.log(coin);
-    console.log(coinChange);
-
-    let coinResult = '';
-
     var myHeaders = new Headers();
     myHeaders.append("apikey", "oO66cl65R143rZd5CDXtAsTfTL9BVvXi");
 
-    fetch("https://api.apilayer.com/exchangerates_data/convert?to`${this.tengo}`&from=`${this.quiero}`&amount=`${this.cantidad}`",
+    fetch('https://api.apilayer.com/exchangerates_data/convert?to=' + coinChange + '&from=' + coin + '&amount=' + this.cantidad,
       {
         method: 'GET',
         redirect: 'follow',
         headers: myHeaders
       })
-      .then(response => response.text())
-      .then(result => console.log(result))
+      .then(response => response.json())
+      .then(result => {
+        //se asigna result a la variable total que ya es un array de tipo any
+        this.total = result;
+      })
       .catch(error => console.log('error', error));
 
-    console.log(coinResult);
   }
 
 }
